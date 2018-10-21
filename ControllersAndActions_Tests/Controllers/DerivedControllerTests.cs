@@ -3,18 +3,18 @@ using Xunit;
 
 namespace ControllersAndActions_Tests.Controllers
 {
-    public class PocoControllerTests
+    public class DerivedControllerTests
     {
-        [Fact(DisplayName = "When the Index action is called the Result view is selected")]
+        [Fact(DisplayName = "When the Index action is called the DictionaryResult view is selected")]
         public void CorrectViewSelected()
         {
             // Arrange
-            var pocoController = new PocoController();
+            var derivedController = new DerivedController();
 
             // Act
-            var viewResult = pocoController.Index();
+            var viewResult = derivedController.Index();
 
-            // Assert
+            //Arrange
             Assert.Equal("Result", viewResult.ViewName);
         }
     }
