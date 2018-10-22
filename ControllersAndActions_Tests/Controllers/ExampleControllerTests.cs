@@ -6,8 +6,8 @@ namespace ControllersAndActions_Tests.Controllers
 {
     public class ExampleControllerTests
     {
-        [Fact(DisplayName = "The model of the Index view is a DateTime")]
-        public void CorrectModelTypeISUsed()
+        [Fact(DisplayName = "The ViewBag of the Index view has a string and DateTime")]
+        public void CorrectViewbagTypesAreUsed()
         {
             // Arrange
             var exampleController = new ExampleController();
@@ -16,7 +16,9 @@ namespace ControllersAndActions_Tests.Controllers
             var viewResult = exampleController.Index();
 
             // Assert
-            Assert.IsType<DateTime>(viewResult.ViewData.Model);
+            Assert.IsType<string>(viewResult.ViewData["Message"]);
+            Assert.Equal("Hello", viewResult.ViewData["Message"]);
+            Assert.IsType<DateTime>(viewResult.ViewData["Date"]);
         }
     }
 }
