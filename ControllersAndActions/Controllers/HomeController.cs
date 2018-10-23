@@ -6,6 +6,9 @@ namespace ControllersAndActions.Controllers
     {
         public ViewResult Index() => View("SimpleForm");
         
-        public ViewResult ReceiveForm(string name, string city) => View("Result", $"{name} lives in {city}");
+        [HttpPost]
+        public RedirectToActionResult ReceiveForm(string name, string city) => RedirectToAction(nameof(Data));
+
+        public ViewResult Data() => View("Result");
     }
 }
