@@ -21,7 +21,7 @@ namespace ControllersAndActions_Tests.Controllers
             Assert.IsType<DateTime>(viewResult.ViewData["Date"]);
         }
 
-        [Fact(DisplayName = "When the Redirect action is called the user is permanently redirected to the Index action")]
+        [Fact(DisplayName = "When the Redirect action is called the user is redirected to the Index action")]
         public void Redirection()
         {
             // Arrange
@@ -31,8 +31,10 @@ namespace ControllersAndActions_Tests.Controllers
             var redirectResult = exampleController.Redirect();
 
             // Assert
-            Assert.Equal("/Example/Index", redirectResult.Url);
-            Assert.True(redirectResult.Permanent);
+            Assert.False(redirectResult.Permanent);
+            Assert.Equal("Example", redirectResult.RouteValues["controller"]);
+            Assert.Equal("Index", redirectResult.RouteValues["action"]);
+            Assert.Equal("MyID", redirectResult.RouteValues["ID"]);
         }
     }
 }
