@@ -13,5 +13,7 @@ namespace ControllersAndActions.Controllers
         }
 
         public ViewResult Result() => View(model:"Hello World");
+
+        public RedirectToActionResult Redirect() => RedirectToAction("Index", "Home");
     }
 }

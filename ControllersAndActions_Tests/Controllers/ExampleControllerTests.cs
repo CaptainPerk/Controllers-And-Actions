@@ -20,5 +20,20 @@ namespace ControllersAndActions_Tests.Controllers
             Assert.Equal("Hello", viewResult.ViewData["Message"]);
             Assert.IsType<DateTime>(viewResult.ViewData["Date"]);
         }
+
+        [Fact(DisplayName = "When the Redirect action is called the user is redirected to the Home/Index action")]
+        public void Redirection()
+        {
+            // Arrange
+            var exampleController = new ExampleController();
+
+            // Act
+            var redirectResult = exampleController.Redirect();
+
+            // Assert
+            Assert.False(redirectResult.Permanent);
+            Assert.Equal("Home", redirectResult.ControllerName);
+            Assert.Equal("Index", redirectResult.ActionName);
+        }
     }
 }
