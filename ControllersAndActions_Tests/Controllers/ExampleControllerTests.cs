@@ -48,5 +48,18 @@ namespace ControllersAndActions_Tests.Controllers
             // Assert
             Assert.Equal(new[] {"Alice", "Bob", "Joe"}, jsonResult.Value);
         }
+
+        [Fact(DisplayName = "When the StatusCodeIndex action is called a 404 response is produced")]
+        public void StatusCodeActionMethod()
+        {
+            // Arrange
+            var exampleController = new ExampleController();
+
+            // Act
+            var statusCodeResult = exampleController.StatusCodeIndex();
+
+            // Assert
+            Assert.Equal(404, statusCodeResult.StatusCode);
+        }
     }
 }
