@@ -23,5 +23,7 @@ namespace ControllersAndActions.Controllers
         public ObjectResult ObjectIndex() => Ok(new[] {"Alice", "Bob", "Joe"});
 
         public VirtualFileResult VirtualFileIndex() => File("/lib/bootstrap/dist/css/bootstrap.css", "text/css");
+
+        public StatusCodeResult StatusCodeIndex() => NotFound();
     }
 }
