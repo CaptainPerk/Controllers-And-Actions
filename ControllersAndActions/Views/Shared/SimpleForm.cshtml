@@ -7,10 +7,10 @@
 <head>
     <meta name="viewport" content="width=device-width"/>
     <title>Controllers and Actions</title>
-    <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css"/>
+    <link rel="stylesheet" href="@Url.Action("VirtualFileIndex", "Example")"/>
 </head>
 <body class="m-1 p-1">
-    <form method="post" asp-action="ReceiveForm">
+    <form method="post" asp-controller="Home" asp-action="ReceiveForm">
         <div class="form-group">
             <label for="name">Name:</label>
             <input class="form-control" name="name"/>

@@ -15,5 +15,13 @@ namespace ControllersAndActions.Controllers
         public ViewResult Result() => View(model:"Hello World");
 
         public RedirectToActionResult Redirect() => RedirectToAction("Index", "Home");
+
+        public JsonResult JsonIndex() => Json(new[] {"Alice", "Bob", "Joe"});
+
+        public ContentResult ContentIndex() => Content("[\"Alice\",\"Bob\",\"Joe\"]", "application/json");
+
+        public ObjectResult ObjectIndex() => Ok(new[] {"Alice", "Bob", "Joe"});
+
+        public VirtualFileResult VirtualFileIndex() => File("/lib/bootstrap/dist/css/bootstrap.css", "text/css");
     }
 }
