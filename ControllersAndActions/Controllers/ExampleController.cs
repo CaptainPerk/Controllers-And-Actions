@@ -16,6 +16,10 @@ namespace ControllersAndActions.Controllers
 
         public RedirectToActionResult Redirect() => RedirectToAction("Index", "Home");
 
-        public JsonResult NewIndex() => Json(new[] {"Alice", "Bob", "Joe"});
+        public JsonResult JsonIndex() => Json(new[] {"Alice", "Bob", "Joe"});
+
+        public ContentResult ContentIndex() => Content("[\"Alice\",\"Bob\",\"Joe\"]", "application/json");
+
+        public ObjectResult ObjectIndex() => Ok(new[] {"Alice", "Bob", "Joe"});
     }
 }
