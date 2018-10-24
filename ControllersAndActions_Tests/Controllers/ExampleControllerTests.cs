@@ -35,5 +35,18 @@ namespace ControllersAndActions_Tests.Controllers
             Assert.Equal("Home", redirectResult.ControllerName);
             Assert.Equal("Index", redirectResult.ActionName);
         }
+
+        [Fact(DisplayName = "When the NewIndex action is called a Json response is produced")]
+        public void JsonActionMethod()
+        {
+            // Arrange
+            var exampleController = new ExampleController();
+
+            // Act
+            var jsonResult = exampleController.NewIndex();
+
+            // Assert
+            Assert.Equal(new[] {"Alice", "Bob", "Joe"}, jsonResult.Value);
+        }
     }
 }

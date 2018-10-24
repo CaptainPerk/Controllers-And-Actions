@@ -15,5 +15,7 @@ namespace ControllersAndActions.Controllers
         public ViewResult Result() => View(model:"Hello World");
 
         public RedirectToActionResult Redirect() => RedirectToAction("Index", "Home");
+
+        public JsonResult NewIndex() => Json(new[] {"Alice", "Bob", "Joe"});
     }
 }
